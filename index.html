@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DashFlow</title>
+
+  <link rel="stylesheet" href="./dist/output.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" type="image/jpeg" href="img/icon.png">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <div class="animated-bg"></div>
+
+  <div class="content">
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar navbar-dark bg-dark navbar-custom">
+
+      <div class="container-fluid">
+
+        <h2 class="text-xl mt-4">
+          <span class="material-symbols-outlined">dashboard</span>
+          DashFlow
+        </h2>
+
+      </div>
+
+      <div class="bell-icon"></div>
+
+      <div class="search">
+
+        <span class="material-symbols-outlined search-icon">
+          search
+        </span>
+
+        <input
+          type="text"
+          class="search-box"
+          placeholder="Search anything..."
+        >
+
+      </div>
+
+      <div class="user-area">
+
+        <span
+          id="notificationBell"
+          class="text-white text-xl"
+        >
+          🔔
+        </span>
+
+        <span class="text-white Greeting">
+          Welcome, Anfal
+        </span>
+
+        <span class="material-symbols-outlined person-icon">
+          person
+        </span>
+
+      </div>
+
+    </nav>
+
+
+    <!-- ================= NOTIFICATION PANEL ================= -->
+
+    <div id="notificationPanel" class="notification-panel">
+
+      <div class="notification-header">
+
+        <h3>Messages</h3>
+
+        <button id="closeNotification">
+          &times;
+        </button>
+
+      </div>
+
+
+      <div class="notification-content">
+
+        <div class="message">
+
+          <div class="message-icon">
+            💬
+          </div>
+
+          <div>
+
+            <h4>New Message</h4>
+
+            <p>
+              You have a new message.
+            </p>
+
+            <small>
+              2 min ago
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <div class="message">
+
+          <div class="message-icon">
+            📢
+          </div>
+
+          <div>
+
+            <h4>New Update</h4>
+
+            <p>
+              Your dashboard has been updated.
+            </p>
+
+            <small>
+              10 min ago
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <div class="message">
+
+          <div class="message-icon">
+            ✅
+          </div>
+
+          <div>
+
+            <h4>Task Completed</h4>
+
+            <p>
+              Your task was completed successfully.
+            </p>
+
+            <small>
+              30 min ago
+            </small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <div class="dashboard-layout">
+
+      <aside class="sidebar">
+
+        <a
+          href="#dashboard"
+          id="dashboardLink"
+          class="sidebar-link"
+        >
+
+          <span class="material-symbols-outlined">
+            monitor
+          </span>
+
+          <span>
+            Dashboard
+          </span>
+
+        </a>
+
+
+        <a
+          href="#User"
+          class="sidebar-link"
+        >
+
+          <span class="material-symbols-outlined">
+            person
+          </span>
+
+          <span>
+            Users
+          </span>
+
+        </a>
+
+
+        <a
+          href="#analytics"
+          class="sidebar-link"
+        >
+
+          <span class="material-symbols-outlined">
+            analytics
+          </span>
+
+          <span>
+            Analytics
+          </span>
+
+        </a>
+
+
+        <a
+          href="#Orders"
+          class="sidebar-link"
+        >
+
+          <span class="material-symbols-outlined">
+            shopping_cart
+          </span>
+
+          <span>
+            Orders
+          </span>
+
+        </a>
+
+
+        <!-- SETTINGS -->
+
+        <a
+          href="#settingsPage"
+          id="settingsLink"
+          class="sidebar-link"
+        >
+
+          <span class="material-symbols-outlined">
+            settings
+          </span>
+
+          <span>
+            Settings
+          </span>
+
+        </a>
+
+      </aside>
+
+    </div>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="dashboard-main">
+
+
+      <!-- ================= DASHBOARD HEADER ================= -->
+
+      <div
+        id="dashboard"
+        class="dashboard-header"
+      >
+
+        <div>
+
+          <h1 class="text-3xl font-bold text-gray-800">
+            Dashboard
+          </h1>
+
+          <p class="text-gray-500 mt-2">
+            Here's what's happening with your business today.
+          </p>
+
+        </div>
+
+
+        <button
+          id="downloadReportBtn"
+          class="dashboard-btn"
+        >
+
+          <span class="material-symbols-outlined">
+            download
+          </span>
+
+          Download Report
+
+        </button>
+
+      </div>
+
+
+      <!-- ================= STATS ================= -->
+
+      <div class="stats-grid">
+
+
+        <!-- TOTAL USERS -->
+
+        <div class="stat-card">
+
+          <div class="stat-card-top">
+
+            <div>
+
+              <p class="stat-title">
+                Total Users
+              </p>
+
+              <h2 class="stat-value">
+                12,480
+              </h2>
+
+            </div>
+
+
+            <div class="stat-icon pink">
+
+              <span class="material-symbols-outlined">
+                group
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="stat-bottom">
+
+            <span class="growth positive">
+
+              <span class="material-symbols-outlined">
+                trending_up
+              </span>
+
+              12.5%
+
+            </span>
+
+            <span>
+              from last month
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- REVENUE -->
+
+        <div class="stat-card">
+
+          <div class="stat-card-top">
+
+            <div>
+
+              <p class="stat-title">
+                Revenue
+              </p>
+
+              <h2 class="stat-value">
+                $48,620
+              </h2>
+
+            </div>
+
+
+            <div class="stat-icon purple">
+
+              <span class="material-symbols-outlined">
+                payments
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="stat-bottom">
+
+            <span class="growth positive">
+
+              <span class="material-symbols-outlined">
+                trending_up
+              </span>
+
+              8.2%
+
+            </span>
+
+            <span>
+              from last month
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- ORDERS -->
+
+        <div class="stat-card">
+
+          <div class="stat-card-top">
+
+            <div>
+
+              <p class="stat-title">
+                Orders
+              </p>
+
+              <h2 class="stat-value">
+                1,846
+              </h2>
+
+            </div>
+
+
+            <div class="stat-icon blue">
+
+              <span class="material-symbols-outlined">
+                shopping_bag
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="stat-bottom">
+
+            <span class="growth positive">
+
+              <span class="material-symbols-outlined">
+                trending_up
+              </span>
+
+              5.7%
+
+            </span>
+
+            <span>
+              from last month
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- GROWTH -->
+
+        <div class="stat-card">
+
+          <div class="stat-card-top">
+
+            <div>
+
+              <p class="stat-title">
+                Growth
+              </p>
+
+              <h2 class="stat-value">
+                24.8%
+              </h2>
+
+            </div>
+
+
+            <div class="stat-icon green">
+
+              <span class="material-symbols-outlined">
+                show_chart
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="stat-bottom">
+
+            <span class="growth positive">
+
+              <span class="material-symbols-outlined">
+                trending_up
+              </span>
+
+              4.3%
+
+            </span>
+
+            <span>
+              from last month
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= CHARTS + OVERVIEW ================= -->
+
+      <div
+        id="analytics"
+        class="dashboard-grid"
+      >
+
+
+        <!-- REVENUE -->
+
+        <div class="dashboard-card revenue-card">
+
+          <div class="card-header">
+
+            <div>
+
+              <h3>
+                Revenue Overview
+              </h3>
+
+              <p>
+                Revenue performance
+              </p>
+
+            </div>
+
+
+            <div class="filter-btn">
+
+              <select id="revenueFilter">
+
+                <option value="year">
+                  This Year
+                </option>
+
+                <option value="month">
+                  This Month
+                </option>
+
+                <option value="week">
+                  This Week
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <div class="chart-container">
+
+            <canvas id="revenueChart"></canvas>
+
+          </div>
+
+        </div>
+
+
+        <!-- QUICK OVERVIEW -->
+
+        <div class="dashboard-card">
+
+          <div class="card-header">
+
+            <div>
+
+              <h3>
+                Quick Overview
+              </h3>
+
+              <p>
+                Current performance
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="overview-list">
+
+
+            <div class="overview-item">
+
+              <div class="overview-icon pink">
+
+                <span class="material-symbols-outlined">
+                  person_add
+                </span>
+
+              </div>
+
+              <div>
+
+                <p>
+                  New Users
+                </p>
+
+                <strong>
+                  1,284
+                </strong>
+
+              </div>
+
+              <span class="growth positive">
+                +18%
+              </span>
+
+            </div>
+
+
+            <div class="overview-item">
+
+              <div class="overview-icon purple">
+
+                <span class="material-symbols-outlined">
+                  shopping_cart
+                </span>
+
+              </div>
+
+              <div>
+
+                <p>
+                  Completed Orders
+                </p>
+
+                <strong>
+                  1,542
+                </strong>
+
+              </div>
+
+              <span class="growth positive">
+                +12%
+              </span>
+
+            </div>
+
+
+            <div class="overview-item">
+
+              <div class="overview-icon blue">
+
+                <span class="material-symbols-outlined">
+                  visibility
+                </span>
+
+              </div>
+
+              <div>
+
+                <p>
+                  Page Views
+                </p>
+
+                <strong>
+                  28.4K
+                </strong>
+
+              </div>
+
+              <span class="growth positive">
+                +9%
+              </span>
+
+            </div>
+
+
+            <div class="overview-item">
+
+              <div class="overview-icon green">
+
+                <span class="material-symbols-outlined">
+                  percent
+                </span>
+
+              </div>
+
+              <div>
+
+                <p>
+                  Conversion Rate
+                </p>
+
+                <strong>
+                  6.8%
+                </strong>
+
+              </div>
+
+              <span class="growth positive">
+                +3%
+              </span>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= ORDERS ================= -->
+
+      <div
+        id="Orders"
+        class="dashboard-card"
+      >
+
+        <div class="card-header">
+
+          <div>
+
+            <h3>
+              Orders Overview
+            </h3>
+
+            <p>
+              Monthly order performance
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="chart-container small-chart">
+
+          <canvas id="ordersChart"></canvas>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= USER DISTRIBUTION ================= -->
+
+      <div
+        id="User"
+        class="dashboard-card"
+      >
+
+        <div class="card-header">
+
+          <div>
+
+            <h3>
+              User Distribution
+            </h3>
+
+            <p>
+              Users by category
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="chart-container doughnut-chart">
+
+          <canvas id="usersChart"></canvas>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= RECENT ACTIVITY ================= -->
+
+      <div class="dashboard-card recent-card">
+
+        <div class="card-header">
+
+          <div>
+
+            <h3>
+              Recent Activity
+            </h3>
+
+            <p>
+              Latest updates from your dashboard
+            </p>
+
+          </div>
+
+          <a
+            href="#"
+            class="view-all"
+          >
+            View All
+          </a>
+
+        </div>
+
+
+        <div class="activity-list">
+
+
+          <div class="activity-item">
+
+            <div class="activity-avatar pink-bg">
+              AT
+            </div>
+
+            <div class="activity-info">
+
+              <strong>
+                Anfal Tanveer
+              </strong>
+
+              <p>
+                Created a new order #ORD-2048
+              </p>
+
+            </div>
+
+            <span class="activity-time">
+              5 min ago
+            </span>
+
+          </div>
+
+
+          <div class="activity-item">
+
+            <div class="activity-avatar purple-bg">
+              MK
+            </div>
+
+            <div class="activity-info">
+
+              <strong>
+                Muhammad Khan
+              </strong>
+
+              <p>
+                Registered a new account
+              </p>
+
+            </div>
+
+            <span class="activity-time">
+              18 min ago
+            </span>
+
+          </div>
+
+
+          <div class="activity-item">
+
+            <div class="activity-avatar blue-bg">
+              SA
+            </div>
+
+            <div class="activity-info">
+
+              <strong>
+                Sarah Ahmed
+              </strong>
+
+              <p>
+                Completed payment for order #ORD-2042
+              </p>
+
+            </div>
+
+            <span class="activity-time">
+              42 min ago
+            </span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= SETTINGS PAGE ================= -->
+
+      <section
+        id="settingsPage"
+        class="settings-page"
+      >
+
+
+        <div class="settings-header">
+
+          <h2>
+            User Settings
+          </h2>
+
+          <p>
+            Manage your profile, appearance and notifications.
+          </p>
+
+        </div>
+
+
+        <!-- PROFILE -->
+
+        <div class="settings-card">
+
+          <div class="settings-card-header">
+
+            <h3>
+              Profile Settings
+            </h3>
+
+            <p>
+              Update your personal information.
+            </p>
+
+          </div>
+
+
+          <div class="settings-grid">
+
+
+            <div class="setting-field">
+
+              <label for="userName">
+                Full Name
+              </label>
+
+              <input
+                type="text"
+                id="userName"
+                value="Anfal Tanveer"
+              >
+
+            </div>
+
+
+            <div class="setting-field">
+
+              <label for="userEmail">
+                Email Address
+              </label>
+
+              <input
+                type="email"
+                id="userEmail"
+                value="anfal@example.com"
+              >
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+        <!-- APPEARANCE -->
+
+        <div class="settings-card">
+
+          <div class="settings-card-header">
+
+            <h3>
+              Appearance
+            </h3>
+
+            <p>
+              Customize how your dashboard looks.
+            </p>
+
+          </div>
+
+
+          <div class="setting-row">
+
+            <div>
+
+              <h4>
+                Dark Mode
+              </h4>
+
+              <p>
+                Use dark theme across the dashboard.
+              </p>
+
+            </div>
+
+
+            <label class="switch">
+
+              <input
+                type="checkbox"
+                id="darkModeToggle"
+              >
+
+              <span class="slider"></span>
+
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <!-- NOTIFICATIONS -->
+
+        <div class="settings-card">
+
+          <div class="settings-card-header">
+
+            <h3>
+              Notifications
+            </h3>
+
+            <p>
+              Manage your notification preferences.
+            </p>
+
+          </div>
+
+
+          <div class="setting-row">
+
+            <div>
+
+              <h4>
+                Email Notifications
+              </h4>
+
+              <p>
+                Receive important updates through email.
+              </p>
+
+            </div>
+
+
+            <label class="switch">
+
+              <input
+                type="checkbox"
+                id="emailNotifications"
+                checked
+              >
+
+              <span class="slider"></span>
+
+            </label>
+
+          </div>
+
+
+          <div class="setting-row">
+
+            <div>
+
+              <h4>
+                Push Notifications
+              </h4>
+
+              <p>
+                Receive notifications inside the dashboard.
+              </p>
+
+            </div>
+
+
+            <label class="switch">
+
+              <input
+                type="checkbox"
+                id="pushNotifications"
+                checked
+              >
+
+              <span class="slider"></span>
+
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="settings-actions">
+
+          <button
+            id="saveSettings"
+            class="save-settings"
+          >
+            Save Changes
+          </button>
+
+
+          <button
+            id="resetSettings"
+            class="reset-settings"
+          >
+            Reset
+          </button>
+
+        </div>
+
+
+      </section>
+
+
+    </main>
+
+
+
+    <script src="./script.js"></script>
+
+  </div>
+
+</body>
+
+</html>
